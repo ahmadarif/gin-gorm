@@ -1,0 +1,103 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "BhMowD2DIKSd9qq8Pzh7Y3mh2/w=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae",
+			"revisionTime": "2017-01-09T09:34:21Z"
+		},
+		{
+			"checksumSHA1": "UtOmMl943BJaYYlapCYLjiGwwrA=",
+			"path": "github.com/gin-gonic/gin",
+			"revision": "783c7ee9c14eac0e65b501664b4f553291556b43",
+			"revisionTime": "2018-01-26T03:46:11Z"
+		},
+		{
+			"checksumSHA1": "jfzaIhRB69YKvY1KgaUhL66omiQ=",
+			"path": "github.com/gin-gonic/gin/binding",
+			"revision": "783c7ee9c14eac0e65b501664b4f553291556b43",
+			"revisionTime": "2018-01-26T03:46:11Z"
+		},
+		{
+			"checksumSHA1": "ZrBlc4nW5joRSLLRThHlxU+bWtg=",
+			"path": "github.com/gin-gonic/gin/json",
+			"revision": "783c7ee9c14eac0e65b501664b4f553291556b43",
+			"revisionTime": "2018-01-26T03:46:11Z"
+		},
+		{
+			"checksumSHA1": "s4/K+U7H8lKxLAsq2cXDpCUiCv4=",
+			"path": "github.com/gin-gonic/gin/render",
+			"revision": "783c7ee9c14eac0e65b501664b4f553291556b43",
+			"revisionTime": "2018-01-26T03:46:11Z"
+		},
+		{
+			"checksumSHA1": "WIiUhgnAiTtSI6Vm+RrJgzjY0lI=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "bc14601d1bd56421dd60f561e6052c9ed77f9daf",
+			"revisionTime": "2018-01-25T05:47:45Z"
+		},
+		{
+			"checksumSHA1": "du6NkYFlK2UnPki8fQIs7NXrkIE=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "bbd03ef6da3a115852eaf24c8a1c46aeb39aa175",
+			"revisionTime": "2018-02-02T18:43:18Z"
+		},
+		{
+			"checksumSHA1": "yU0rlqxu8zwZPr6JYF+5+dS4mJU=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "6e1387b44c64dce50b89c2f56ed425f5f73e417c",
+			"revisionTime": "2018-02-13T10:12:09Z"
+		},
+		{
+			"checksumSHA1": "w5/naAzcG0+g6aYx63/of1Wbgqw=",
+			"path": "github.com/jinzhu/gorm/dialects/mysql",
+			"revision": "6e1387b44c64dce50b89c2f56ed425f5f73e417c",
+			"revisionTime": "2018-02-13T10:12:09Z"
+		},
+		{
+			"checksumSHA1": "tUQ1pHvWxAcPFmveZtlmCR9H4TY=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "1c35d901db3da928c72a72d8458480cc9ade058f",
+			"revisionTime": "2017-01-02T12:52:26Z"
+		},
+		{
+			"checksumSHA1": "kum8izZy1+pVfDiApW5hT2HoH1w=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c",
+			"revisionTime": "2017-11-07T05:05:31Z"
+		},
+		{
+			"checksumSHA1": "XDIySKb2GhoRo56ck8keEv6+DCA=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "3c6eef45ff2de301fee18d11cd8727f65754eeb5",
+			"revisionTime": "2018-02-07T12:14:15Z"
+		},
+		{
+			"checksumSHA1": "r1XmgsEEETrvGFCpCo1s5ncmBpY=",
+			"path": "github.com/ugorji/go/codec",
+			"revision": "b5b949564861e43a03568a0b134c135cf318e5c8",
+			"revisionTime": "2018-02-05T16:51:14Z"
+		},
+		{
+			"checksumSHA1": "osb18zDjd7/RMAMUuN3qP+w0ewE=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "37707fdb30a5b38865cfb95e5aab41707daec7fd",
+			"revisionTime": "2018-02-02T13:35:31Z"
+		},
+		{
+			"checksumSHA1": "q190bL03wQok3wVwYmMub2XhOiU=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
+			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
+			"checksumSHA1": "4OooZWILCvVDJXFO2CuO9GPUj9U=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "d670f9405373e636a5a2765eea47fac0c9bc91a4",
+			"revisionTime": "2018-01-09T11:43:31Z"
+		}
+	],
+	"rootPath": "ahmadarif/gin-gorm"
+}
