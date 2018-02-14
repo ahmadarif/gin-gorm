@@ -1,2 +1,17 @@
-# Simple API using gin (golang framework)
-This project using govendor package manager
+# Description
+Simple API using gin (golang framework)
+
+# Requirements
+- [Govendor][Govendor]
+
+# Installations
+- Install dependencies
+    ```
+    govendor sync
+    ```
+- Run application
+    ```
+    go run main.go
+    ```
+
+[Govendor]: https://github.com/kardianos/govendor
