@@ -8,12 +8,10 @@ import (
 
 	"ahmadarif/gin-gorm/json"
 	"ahmadarif/gin-gorm/models"
-	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
 func createTodo(c *gin.Context) {
-	fmt.Println("hoh")
 	completed, _ := strconv.Atoi(c.PostForm("completed"))
 	todo := models.Todo{Title: c.PostForm("title"), Completed: completed}
 	DB.Save(&todo)
