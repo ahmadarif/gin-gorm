@@ -1,16 +1,19 @@
 package routes
 
 import (
+	"ahmadarif/gin-gorm/middleware"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func InitRoutes() {
 	router := gin.Default()
 
-	router.GET("", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "message": "Hello world!"})
-	})
+	api := router.Group("/api", middleware.FakeAuth())
+	api.GET("", index)
+	api.POST("", hello)
+	api.GET("/query", queryString)
+	api.POST("/upload", uploadFile)
+	api.GET("/fakeAuth", fakeAuth)
 
 	v1 := router.Group("/api/v1/todos")
 	v1.POST("", createTodo)
