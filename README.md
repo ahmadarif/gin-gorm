@@ -1,5 +1,5 @@
 # Description
-Simple API using gin (golang framework)
+Simple API using gin and gorm
 
 # Requirements
 - [Govendor][Govendor]
