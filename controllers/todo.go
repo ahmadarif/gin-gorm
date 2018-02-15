@@ -20,23 +20,29 @@ func TodoGetAll(c *gin.Context) {
 	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
 	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "20"))
 
-	//pagination 1 : menggunakan reflect
+	// pagination 1 : menggunakan reflect
 	var todos []models.Todo
 	DB.Find(&todos)
 	p := utils.Paginate(todos, page, limit)
 	c.JSON(http.StatusOK, p)
+}
+
+func TodoGetAllDb(c *gin.Context) {
+	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
+	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "20"))
 
 	// pagination 2: menggunakan query limit offset
-	//var todos []models.Todo
-	//var total int
-	//offset := utils.CalcOffset(limit, page)
-	//DB.Find(&todos).Count(&total)
-	//DB.Offset(offset).Limit(limit).Find(&todos)
-	//c.JSON(http.StatusOK, gin.H{
-	//	"status": http.StatusOK,
-	//	"data":   todos,
-	//	"total":  total,
-	//})
+	var todos []models.Todo
+	var total int
+	offset := utils.CalcOffset(limit, page)
+	DB.Offset(offset).Limit(limit).Find(&todos).Count(&total)
+	lastPage := utils.CalcLastPage(total, limit)
+	c.JSON(http.StatusOK, gin.H{
+		"status":    http.StatusOK,
+		"data":      todos,
+		"total":     total,
+		"last_page": lastPage,
+	})
 }
 
 func TodoGetByID(c *gin.Context) {

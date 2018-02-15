@@ -22,9 +22,10 @@ func InitRoutes() {
 
 		todos := v1.Group("/todos")
 		{
-			todos.POST("", controllers.TodoInsert)
 			todos.GET("", controllers.TodoGetAll)
-			todos.GET("/:id", controllers.TodoGetByID)
+			todos.GET("/db", controllers.TodoGetAllDb)
+			todos.GET("/byId/:id", controllers.TodoGetByID)
+			todos.POST("", controllers.TodoInsert)
 			todos.PUT("/:id", controllers.TodoUpdate)
 			todos.DELETE("/:id", controllers.TodoDelete)
 		}

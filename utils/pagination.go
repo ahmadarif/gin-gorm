@@ -20,25 +20,22 @@ func Paginate(data interface{}, page, limit int) Pagination {
 
 	arrData := reflect.ValueOf(data)
 	paging.Total = arrData.Len()
-	paging.LastPage = int(math.Ceil(float64(paging.Total) / float64(paging.PerPage)))
-	if paging.LastPage < 0 {
-		paging.LastPage = 1
-	}
+	paging.LastPage = CalcLastPage(paging.Total, paging.PerPage)
 
 	// kalkulasi untuk proses pemotongan array
-	idxStart := paging.PerPage * (paging.CurrentPage - 1)
-	idxFinish := idxStart + paging.PerPage
-	if idxFinish > paging.Total {
-		idxFinish = paging.Total
+	offset := CalcOffset(paging.PerPage, paging.CurrentPage)
+	offsetEnd := offset + paging.PerPage
+	if offsetEnd > paging.Total {
+		offsetEnd = paging.Total
 	}
 
 	// kondisi sebelum melakukan pagination
-	if paging.CurrentPage <= 0 || idxStart > idxFinish {
+	if paging.CurrentPage <= 0 || offset > offsetEnd {
 		return paging
 	}
 
 	// paging sesuai data
-	arrData = arrData.Slice(idxStart, idxFinish)
+	arrData = arrData.Slice(offset, offsetEnd)
 
 	// append array to data
 	var source []interface{}
@@ -56,4 +53,12 @@ func Paginate(data interface{}, page, limit int) Pagination {
 
 func CalcOffset(perPage, page int) int {
 	return perPage * (page - 1)
+}
+
+func CalcLastPage(total, perPage int) int {
+	lastPage := int(math.Ceil(float64(total) / float64(perPage)))
+	if lastPage < 0 {
+		lastPage = 1
+	}
+	return lastPage
 }
