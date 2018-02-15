@@ -16,6 +16,9 @@ func init() {
 		panic(err)
 	}
 
+	// Enable Logger, show detailed log
+	DB.LogMode(true)
+
 	//Migrate the schema
 	DB.AutoMigrate(&Todo{})
 }

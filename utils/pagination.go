@@ -53,3 +53,7 @@ func Paginate(data interface{}, page, limit int) Pagination {
 
 	return paging
 }
+
+func CalcOffset(perPage, page int) int {
+	return perPage * (page - 1)
+}
