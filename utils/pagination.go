@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"math"
 	"reflect"
 )
@@ -22,6 +21,9 @@ func Paginate(data interface{}, page, limit int) Pagination {
 	arrData := reflect.ValueOf(data)
 	paging.Total = arrData.Len()
 	paging.LastPage = int(math.Ceil(float64(paging.Total) / float64(paging.PerPage)))
+	if paging.LastPage < 0 {
+		paging.LastPage = 1
+	}
 
 	// kalkulasi untuk proses pemotongan array
 	idxStart := paging.PerPage * (paging.CurrentPage - 1)
@@ -31,23 +33,21 @@ func Paginate(data interface{}, page, limit int) Pagination {
 	}
 
 	// kondisi sebelum melakukan pagination
-	if paging.PerPage > paging.Total || paging.CurrentPage <= 0 || idxStart > idxFinish {
+	if paging.CurrentPage <= 0 || idxStart > idxFinish {
 		return paging
 	}
 
 	// paging sesuai data
 	arrData = arrData.Slice(idxStart, idxFinish)
 
+	// append array to data
 	var source []interface{}
-	if page > 0 && page <= paging.LastPage {
-		for i := 0; i < arrData.Len(); i++ {
-			dataTmp := make(map[string]interface{})
-			for j := 0; j < arrData.Index(i).NumField(); j++ {
-				dataTmp[arrData.Index(i).Type().Field(j).Name] = arrData.Index(i).Field(j).Interface()
-			}
-			source = append(source, dataTmp)
+	for i := 0; i < arrData.Len(); i++ {
+		dataTmp := make(map[string]interface{})
+		for j := 0; j < arrData.Index(i).NumField(); j++ {
+			dataTmp[arrData.Index(i).Type().Field(j).Name] = arrData.Index(i).Field(j).Interface()
 		}
-
+		source = append(source, dataTmp)
 	}
 	paging.Data = source
 
